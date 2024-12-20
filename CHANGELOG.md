@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [2.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v1.0.0...release/v2.0.0) (2024-12-20)
+
+### Features
+
+* Added landing page ([78ca864](https://github.com/rjtormis/YelpCamp/commit/78ca864c9f0bd5e3cf9be2024820bb8738d6b0b3))
+
 ## 1.0.0 (2024-12-20)
 
 ### ⚠ BREAKING CHANGES
