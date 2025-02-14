@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [3.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v2.0.0...release/v3.0.0) (2025-02-14)
+
+### Features
+
+* updated frontend ([2af6346](https://github.com/rjtormis/YelpCamp/commit/2af6346131ac9a6571761daa034e0fe5353fe42e))
+
 ## [2.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v1.0.0...release/v2.0.0) (2024-12-20)
 
 ### Features
