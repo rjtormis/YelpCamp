@@ -3,7 +3,16 @@ import camping from "@/assets/camping.json";
 import community from "@/assets/community.json";
 import map from "@/assets/map.json";
 import Lottie from "lottie-react";
-import { ArrowRight, Backpack, CreditCard, Earth, Quote } from "lucide-react";
+import {
+  ArrowRight,
+  Backpack,
+  Calendar,
+  CreditCard,
+  Earth,
+  MapPin,
+  Quote,
+  Search,
+} from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -16,15 +25,26 @@ import {
 } from "@/components/ui/accordion";
 import Footer from "@/components/footer";
 import useIsMobile from "@/hooks/useIsMobile";
+import { Label } from "@/components/ui/label";
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { provincesWithCities } from "@/lib/utils";
 
 function Landing() {
   const isMobile = useIsMobile();
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <Header isFixed={true} />
 
       <div className=" flex-grow flex flex-col lg:flex-row px-4 gap-6 my-32 lg:px-32">
-        <Lottie animationData={camping} loop={true} className="order-1 lg:order-2" />
+        <Lottie animationData={camping} loop={true} className="order-1 lg:order-2 z-1" />
         <section className="my-auto order-2 lg:order-1 ">
           <p className="flex gap-2  text-primary justify-center lg:justify-start lg:text-2xl ">
             Get your experience {!isMobile ? <ArrowRight className="my-auto" /> : null}
@@ -129,22 +149,100 @@ function Landing() {
 
       <div className="px-32">
         <div className="flex flex-col lg:flex-row gap-4 my-8 lg:my-0 ">
-          <Lottie animationData={map} alt="" />
+          <Lottie animationData={map} alt="" className="z-1" />
           <div className="m-auto flex flex-col gap-4">
-            <h2 className="text-4xl font-bold text-center lg:text-left">
+            <h2 className="text-3xl font-bold text-center lg:text-5xl lg:text-left">
               Forest, Starry Night, Campfire, What Else Do You Need?
             </h2>
             <p className="text-muted-foreground text-center lg:text-left">
               Explore more than 1k+ camping destinations, find your most comfortable place to camp
               and book now
             </p>
+            <div className="flex flex-col lg:flex-row gap-4 p-4 ">
+              <div className="flex gap-2">
+                <div className="flex gap-4">
+                  {isMobile ? null : (
+                    <Button className="rounded-full pointer-events-none my-auto" size="icon">
+                      <MapPin size={24} className="my-auto" />
+                    </Button>
+                  )}
+
+                  <div className="">
+                    <Label>Province</Label>
+                    <Select>
+                      <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="Select a fruit" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectGroup>
+                          <Input placeholder="Search" />
+                          <Separator orientation="horizontal" className="my-2" />
+                          {provincesWithCities.map(({ province }) => (
+                            <SelectItem value={province}>{province}</SelectItem>
+                          ))}
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="">
+                    <Label>State / Barangay</Label>
+                    <Select>
+                      <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="Select a fruit" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectGroup>
+                          <Input placeholder="Search" />
+                          <Separator orientation="horizontal" className="my-2" />
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              </div>
+
+              {isMobile ? null : <Separator orientation="vertical" className="h-12 my-auto" />}
+
+              <div className="flex flex-col lg:flex-row gap-4">
+                <div className="flex gap-4 justify-center">
+                  {isMobile ? null : (
+                    <Button className="rounded-full pointer-events-none my-auto" size="icon">
+                      <Calendar size={24} className="my-auto" />
+                    </Button>
+                  )}
+
+                  <div className="">
+                    <Label>Date</Label>
+                    <Select>
+                      <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="Select a fruit" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectGroup>
+                          <Input placeholder="Search" />
+                          <Separator orientation="horizontal" className="my-2" />
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+                <div className="m-auto ">
+                  <Button className="rounded-full">
+                    <Search size={32} /> <span>Search</span>
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-4">
-          <Lottie animationData={community} alt="" className="order-1 lg:order-2" />
+          <Lottie animationData={community} alt="" className="order-1 lg:order-2 z-1" />
           <div className="m-auto  flex flex-col gap-4 order-2 lg:order-1">
-            <h2 className="text-4xl font-bold text-center lg:text-left">
+            <h2 className="text-3xl font-bold text-center  lg:text-5xl lg:text-left">
               Community Service Is Calling, No Need For Stalling.
             </h2>
             <p className="text-muted-foreground text-center lg:text-left">
@@ -230,11 +328,14 @@ function Landing() {
 
       <div className="p-32 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="flex flex-col gap-4">
-          <h2 className="text-4xl font-bold text-center">Got A Question for YelpCamp?</h2>
+          <h2 className="text-4xl font-bold text-center lg:text-left">
+            Got A Question for YelpCamp?
+          </h2>
           <p className="text-center lg:text-left">
             Feel free to ask us questions, we will accomodate you as soon as possible
           </p>
           <Input placeholder="Enter your Email" className="w-full lg:w-[70%] rounded-full" />
+          <Button className="w-full lg:w-[70%] ">Send</Button>
         </div>
         <div>
           <h3 className="text-2xl font-bold text-center lg:text-left">

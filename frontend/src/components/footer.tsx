@@ -2,7 +2,7 @@ import logo from "@/assets/logo.png";
 import { Link } from "react-router-dom";
 function Footer() {
   return (
-    <footer className=" mt-32 grid grid-cols-1 gap-4 p-8  border-t-[1px] bg-primary  border-gray-300 lg:grid-cols-4">
+    <footer className=" grid grid-cols-1 gap-4 p-8  border-t-[1px] bg-primary  border-gray-300 lg:grid-cols-4">
       <section>
         <section className="flex content-center">
           <img src={logo} alt="YelpCamp PH" width={60} height={60} />
