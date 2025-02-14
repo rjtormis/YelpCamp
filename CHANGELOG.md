@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [4.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v3.0.0...release/v4.0.0) (2025-02-14)
+
+### Features
+
+* added docker file for backend ([b0e6a04](https://github.com/rjtormis/YelpCamp/commit/b0e6a04fd1ad8ea9c232d5e82d074c9b9b8f179c))
+
 ## [3.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v2.0.0...release/v3.0.0) (2025-02-14)
 
 ### Features
