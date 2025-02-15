@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [5.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v4.0.0...release/v5.0.0) (2025-02-15)
+
+### Features
+
+* Added new dialogs for listings page and markers for the map, adjusted some typings for incoming data ([5e689a5](https://github.com/rjtormis/YelpCamp/commit/5e689a5a735ac514e210668c5c927cc278d31da7))
+
 ## [4.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v3.0.0...release/v4.0.0) (2025-02-14)
 
 ### Features
