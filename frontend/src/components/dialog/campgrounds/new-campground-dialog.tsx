@@ -51,7 +51,7 @@ function NewCampgroundDialog({ open, setOpen }: NewCampgroundDialogProps) {
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="flex">
-            <Tent />
+            <Tent size={20} />
             <span className="my-auto ml-4">New Campground</span>
           </DialogTitle>
           <DialogDescription>

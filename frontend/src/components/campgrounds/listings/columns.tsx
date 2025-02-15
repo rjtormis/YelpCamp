@@ -1,16 +1,15 @@
 "use client";
 
 import { Checkbox } from "@/components/ui/checkbox";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { ColumnDef } from "@tanstack/react-table";
-import { Pencil } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import UpdateCampground from "@/components/dialog/campgrounds/update-campground";
 
 export type Campground = {
   id: string; // Unique identifier
   name: string; // Name of the campground
   location: string; // Location of the campground
   type: number; // Private or Public
+  latLng: [number, number]; // Latitude and Longitude
   status: "active" | "inactive" | "maintenance";
 };
 
@@ -56,31 +55,7 @@ export const columns: ColumnDef<Campground>[] = [
     header: "Actions",
     cell: () => (
       <div className="flex items-center space-x-2">
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button variant="ghost">
-                <Pencil />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Edit Campground</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-
-        {/* <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button variant="ghost" className="hover:bg-destructive hover:text-white">
-                <Trash />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent className="bg-destructive text-white">
-              <p>Delete Campground</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider> */}
+        <UpdateCampground />
       </div>
     ),
     enableSorting: false,
