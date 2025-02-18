@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [6.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v5.0.0...release/v6.0.0) (2025-02-18)
+
+### Features
+
+* Added model,routers,controllers ([1780b95](https://github.com/rjtormis/YelpCamp/commit/1780b95d3b0313573d7409ea1a0ff734f73cc32a))
+
 ## [5.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v4.0.0...release/v5.0.0) (2025-02-15)
 
 ### Features
