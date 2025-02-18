@@ -8,7 +8,7 @@ export interface IUser extends Document {
   role: "user" | "owner";
   campgrounds: Schema.Types.ObjectId[];
   reviews: Schema.Types.ObjectId[];
-  bookings: Schema.Types.ObjectId[];
+  reservations: Schema.Types.ObjectId[];
   listings: Schema.Types.ObjectId[];
 }
 
