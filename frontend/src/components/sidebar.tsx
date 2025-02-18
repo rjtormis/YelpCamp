@@ -7,24 +7,19 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import {
+  Album,
   Bookmark,
-  ChevronRight,
   ChevronsUpDown,
   Inbox,
   LayoutDashboard,
   ListCheck,
   LogOut,
-  Plus,
   Settings,
   Tent,
 } from "lucide-react";
 import logo from "@/assets/logo.png";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
   DropdownMenu,
@@ -40,27 +35,24 @@ import NewCampgroundDialog from "./dialog/campgrounds/new-campground-dialog";
 import { useState } from "react";
 const items = [
   {
-    title: "Campgrounds",
-    url: "#",
+    title: "Home",
+    url: "/campgrounds",
     icon: <Tent />,
-    isActive: true,
-    items: [
-      {
-        title: "Create",
-        icon: <Plus />,
-        url: "",
-      },
-      {
-        title: "Listings",
-        icon: <ListCheck />,
-        url: "/campgrounds/listings",
-      },
-      {
-        title: "Reservations",
-        icon: <Bookmark />,
-        url: "/campgrounds/reservations",
-      },
-    ],
+  },
+  {
+    title: "Listings",
+    icon: <ListCheck />,
+    url: "/campgrounds/listings",
+  },
+  {
+    title: "Booking",
+    icon: <Album />,
+    url: "/campgrounds/reservations",
+  },
+  {
+    title: "Reservations",
+    icon: <Bookmark />,
+    url: "/campgrounds/reservations",
   },
   {
     title: "Inbox",
@@ -104,48 +96,8 @@ function CampgroundsSidebar() {
       <SidebarContent>
         <SidebarGroup>
           <SidebarMenu>
-            <NewCampgroundDialog open={open} setOpen={setOpen} />
-            {items
-              .filter((i) => i.title === "Campgrounds")
-              .map((item) => (
-                <Collapsible
-                  key={item.title}
-                  asChild
-                  defaultOpen={item.isActive}
-                  className="group/collapsible"
-                >
-                  <SidebarMenuItem>
-                    <CollapsibleTrigger asChild>
-                      <SidebarMenuButton tooltip={item.title}>
-                        {item.icon && item.icon}
-                        <span>{item.title}</span>
-                        <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                      </SidebarMenuButton>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent>
-                      <SidebarMenuSub>
-                        {item.items?.map((subItem) => (
-                          <SidebarMenuSubItem key={subItem.title}>
-                            <SidebarMenuSubButton asChild>
-                              {subItem.title === "Create" ? (
-                                <p className="hover:cursor-pointer" onClick={() => setOpen(true)}>
-                                  {subItem.icon && subItem.icon}
-                                  <span>{subItem.title}</span>
-                                </p>
-                              ) : (
-                                <a href={subItem.url}>
-                                  {subItem.icon && subItem.icon}
-                                  <span>{subItem.title}</span>
-                                </a>
-                              )}
-                            </SidebarMenuSubButton>
-                          </SidebarMenuSubItem>
-                        ))}
-                      </SidebarMenuSub>
-                    </CollapsibleContent>
-                  </SidebarMenuItem>
-                </Collapsible>
-              ))}
+            {/* <NewCampgroundDialog open={open} setOpen={setOpen} /> */}
+
             {items
               .filter((i) => i.title !== "Campgrounds")
               .map((item) => (

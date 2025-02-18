@@ -14,6 +14,7 @@ import { Icon } from "leaflet";
 import { Input } from "@/components/ui/input";
 import DeleteDialog from "@/components/dialog/delete-dialog";
 import landing from "@/assets/landing1.jpg";
+import NewCampgroundDialog from "@/components/dialog/campgrounds/new-campground-dialog";
 
 function Listings() {
   const manilaPosition = [14.5995, 120.9842];
@@ -140,6 +141,7 @@ function Listings() {
         <div className="">
           <div className="flex m-auto gap-2 my-4">
             <Input placeholder="Search" className="" />
+            <NewCampgroundDialog />
             <DeleteDialog type="campground" />
           </div>
           <DataTable columns={columns} data={data} />

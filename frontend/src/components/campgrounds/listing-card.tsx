@@ -7,24 +7,25 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import sampleimage from "@/assets/landing1.jpg";
-import {
-  Badge,
-  BarChart,
-  Fish,
-  Flame,
-  FlameKindling,
-  Footprints,
-  Map,
-  StarIcon,
-} from "lucide-react";
+import { Badge } from "../ui/badge";
+import { BarChart, Fish, Flame, FlameKindling, Footprints, Map, StarIcon } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "../ui/button";
 import { RxDoubleArrowRight } from "react-icons/rx";
+import { useNavigate } from "react-router-dom";
 
 function ListingCard() {
+  const navigate = useNavigate();
+
+  const handleNavigation = () => {
+    navigate("/campgrounds/1");
+  };
   return (
-    <Card className="border-none hover:cursor-pointer hover:bg-white hover:text-black flex flex-col h-auto">
+    <Card
+      className="border-none hover:cursor-pointer hover:bg-white hover:text-black flex flex-col h-auto"
+      onClick={handleNavigation}
+    >
       <CardHeader className="p-0">
         <CardTitle className="text-2xl text-center">
           <div className="relative">
@@ -35,10 +36,12 @@ function ListingCard() {
                 className="w-full h-[200px] rounded-t-lg object-cover"
               />
               <div className="absolute w-full bottom-0 left-0 flex justify-between p-2">
-                <Badge className="rounded-xl">Public</Badge>
-                <Badge className="flex bg-white text-black rounded-xl">
-                  <StarIcon className="my-auto text-primary" />{" "}
-                  <span className="text-sm ml-1">4.9</span>
+                <Badge className="rounded-xl flex flex-col">
+                  <span className="my-auto">Public</span>
+                </Badge>
+                <Badge className="rounded-xl">
+                  <StarIcon className="my-auto text-white" size={14} />{" "}
+                  <span className="text-xs ml-1">4.9</span>
                 </Badge>
               </div>
             </div>

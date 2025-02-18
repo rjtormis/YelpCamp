@@ -4,6 +4,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
 import { FormikNewCampground } from "@/interfaces/formik";
 import { Dispatch, SetStateAction, useState } from "react";
@@ -19,16 +20,16 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "../../ui/textarea";
 import { Button } from "../../ui/button";
-import { Info, Tent } from "lucide-react";
+import { Info, Pencil, Plus, Tent } from "lucide-react";
 import FileDrop from "../../file-drop";
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
-interface NewCampgroundDialogProps {
-  open: boolean;
-  setOpen: Dispatch<SetStateAction<boolean>>;
-}
-function NewCampgroundDialog({ open, setOpen }: NewCampgroundDialogProps) {
+// interface NewCampgroundDialogProps {
+//   open: boolean;
+//   setOpen: Dispatch<SetStateAction<boolean>>;
+// }
+function NewCampgroundDialog() {
   const [images, setImages] = useState<File[]>([]);
   const initialNewCampgroundValues: FormikNewCampground = {
     name: "",
@@ -47,7 +48,21 @@ function NewCampgroundDialog({ open, setOpen }: NewCampgroundDialogProps) {
     console.log("New Campground");
   };
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog>
+      <DialogTrigger>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button>
+                <Plus />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Create campground</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      </DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="flex">
