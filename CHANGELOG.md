@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [7.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v6.0.0...release/v7.0.0) (2025-02-18)
+
+### Features
+
+* Added docker compose, backend controllers and models ([b26b135](https://github.com/rjtormis/YelpCamp/commit/b26b1356f31eac4d3f60dfb1cc8b98599a4df977))
+
 ## [6.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v5.0.0...release/v6.0.0) (2025-02-18)
 
 ### Features
