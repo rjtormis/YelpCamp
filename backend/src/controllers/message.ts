@@ -1,6 +1,6 @@
 import Message from "@models/message";
+import User from "@models/user";
 import { Request, Response, NextFunction } from "express";
-import User from "./user";
 
 /**
  * Get all user messages
