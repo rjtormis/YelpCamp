@@ -1,26 +1,57 @@
-import { IUser } from "interfaces/interface";
-import { Schema, model } from "mongoose";
+import { Request, Response, NextFunction } from "express";
+import User from "@models/user";
 
-const userSchema = new Schema<IUser>({
-  name: { type: String, required: true },
-  password: {
-    type: String,
-    required: true,
-  },
-  emailAddress: {
-    type: String,
-    required: true,
-  },
-  profileImage: { type: String, required: false },
-  role: {
-    type: String,
-    required: true,
-    enum: ["user", "owner"],
-  },
-  campgrounds: [{ type: Schema.Types.ObjectId, ref: "Campground" }],
-  reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }],
-  reservations: [{ type: Schema.Types.ObjectId, ref: "Reservation" }],
-});
+/**
+ * Create User
+ * @body name, password, emailAddress, profileImage, role, provider
+ */
+export const createUser = async (req: Request, res: Response) => {
+  const { name, password, emailAddress, profileImage, role, provider } = req.body;
 
-const User = model<IUser>("User", userSchema);
-export default User;
+  const queryUser = await User.findOne({ emailAddress: emailAddress });
+
+  if (queryUser) {
+    return res.status(409).json({ message: "User already exists" });
+  }
+  // TODO: Handle Social logins
+  // TODO: Handle Password Hashing
+
+  const user = await User.create(req.body);
+
+  return res.status(200).json({ message: "User created successfully", user: user });
+};
+
+/**
+ *  Update specific user
+ * @params id
+ * @body name, password, emailAddress, profileImage, role, provider
+ */
+export const updateUser = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { name, password, emailAddress, profileImage, role, provider } = req.body;
+
+  const queryUser = await User.findById(id);
+  if (!queryUser) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  const updateUser = await User.findByIdAndUpdate(id, req.body);
+
+  return res.status(200).json({ message: "User updated successfully", user: updateUser });
+};
+
+/**
+ * Delete Specific User
+ * @params id
+ */
+export const deleteUser = async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  const queryUser = await User.findByIdAndDelete(id);
+
+  if (!queryUser) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  return res.status(200).json({ message: "User deleted successfully" });
+};

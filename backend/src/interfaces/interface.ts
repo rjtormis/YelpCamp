@@ -6,6 +6,7 @@ export interface IUser extends Document {
   emailAddress: string;
   profileImage: string;
   role: "user" | "owner";
+  provider: "local" | "google" | "facebook";
   campgrounds: Schema.Types.ObjectId[];
   reviews: Schema.Types.ObjectId[];
   reservations: Schema.Types.ObjectId[];
