@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [8.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v7.0.0...release/v8.0.0) (2025-02-19)
+
+### Features
+
+* Completed all necessary controllers, added middlewares, updated models ([f174b9a](https://github.com/rjtormis/YelpCamp/commit/f174b9af09694e67865de8ac8ad607413da312c0))
+
 ## [7.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v6.0.0...release/v7.0.0) (2025-02-18)
 
 ### Features
