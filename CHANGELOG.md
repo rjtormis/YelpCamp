@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [9.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v8.0.0...release/v9.0.0) (2025-02-19)
+
+### Features
+
+* Added user testing ([044ccc9](https://github.com/rjtormis/YelpCamp/commit/044ccc96d007a8e106dd8133012a768961f80d95))
+
 ## [8.0.0](https://github.com/rjtormis/YelpCamp/compare/release/v7.0.0...release/v8.0.0) (2025-02-19)
 
 ### Features
